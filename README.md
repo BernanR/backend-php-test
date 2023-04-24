@@ -1,54 +1,24 @@
-# Teste prático de backend
+## Como instalar e rodar o projeto
 
-Neste repositório você encontra o enunciado do teste técnico de desenvolvedor com foco em PHP e Laravel.
+1. ```git clone https://github.com/BernanR/backend-php-test.git```
+2. ```cd application```
+3. ```composer install```
+3. Copy ```.env.example``` to ```.env```
+4. ```docker-compose build```
+5. ```docker compose up -d```
+6. disponível na url ```127.0.0.1:8080```
 
-## O Teste
 
-Criar uma API que implementa o crud de produtos utilizando o framework laravel.
+## Rodar migrates e seeds
 
-Um produto deve possuir os seguintes dados:
-- ID (PK - Inteiro)
-- Código (String)
-- Nome (String)
-- Preço (Float)
-- Qty Disponível (Inteiro)
-- Marca (String Alfanumérica)
+1. ```docker-compose exec app-api php artisan migrate```
+2. ```docker-compose exec app-api php artisan db:seed```
 
-A API deve implementar os seguintes verbos e endpoint:
+## Link da Aplicação no postaman
+```https://www.postman.com/red-star-7529/workspace/brn-0m30-desafio/overview```
 
-- GET /api/products/
-  - Lista todos os produtos da aplicação.
-- POST /api/products/
-  - Cria um novo produto na aplicação.
-  - Não deve permitir duplicação de códigos. O código deve ser único.
-- GET /api/products/id/
-  - Obtém um produto específico por meio do ID
-- PUT /api/products/id/
-  - Atualiza um produto específico (todo o objeto deve ser atualizado).
-- DELETE /api/products/id/
-  - Deleta um produto especifico da aplicação
+## O que foi feito neste projeto.
 
-### Requisitos  
+ - desenvolvimento das API's nos padrões RESTful.
 
-- Use PHP 8.x e Mysql 8.x (disponíveis do docker-compose.yml do repositório - porém fique livre para rodar como preferir no seu ambiente local).
-- Você deve utilizar o Laravel 9 ou superior para criação da solução.
-- Você deve implementar as migrations, os factories e seed para eventuais testes e validações da sua implementação.
-- Crie um novo README.md explicando como devemos testar sua aplicação. Ou seja, esperamos que você documente o passo a passo para subirmos e testarmos sua aplicação.
-
-## Recomendações
-
-- Utilize docker. Você pode usar o docker-compose.yml deste repositório para rodar sua solução, mas fique livre para usar outro ou personaliza-lo. Você também pode usar o Laravel Sail caso prefira.
-- Siga as [boas práticas](https://swagger.io/resources/articles/best-practices-in-api-design/) para o desenvolvimento de APIs RESTful
-- **Bônus**: escrever ao menos um ou mais testes usando phpunit ou PEST. **Não** é um requisito obrigatório mas com certeza será um diferencial.
-
-## Processo de submissão
-
-O candidato deverá fazer um fork deste repositório e efetuar a implementação do teste.
-
-Ao finalizar a implementação deve adicionar o email denis.spalenza@redeancora.com.br ao seu repositório (onde está a implementação do seu teste) para validação do mesmo.
-
-Não abra PRs no nosso repositório público.
-
-## Dúvidas?
-
-Caso tenha alguma dúvida referente ao teste você pode abrir uma issue aqui mesmo neste repositório.
+## Link Collection  API's

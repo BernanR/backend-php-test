@@ -10,31 +10,32 @@ services:
       - APP_NAME=Laravel Teste
       - APP_URL=http://localhost
       - DB_CONNECTION=mysql
-      - DB_HOST=app-db
+      - DB_HOST=db
       - DB_PORT=3306
-      - DB_DATABASE=laravel-app-api
-      - DB_USERNAME=application
-      - DB_PASSWORD=application
-      - WEB_DOCUMENT_ROOT=/app/public
+      - DB_DATABASE=testDB
+      - DB_USERNAME=user.test
+      - DB_PASSWORD=password
+      - WEB_DOCUMENT_ROOT=/var/www/public
       - APP_ENV=local
       - APP_DEBUG=true
     ports:
       - 80:80
       - 443:443
     volumes:
-      - ./:/app
+      - ./application:/var/www
+    working_dir: /var/www
     restart: on-failure
     networks:
       - homologacao
 
-  app-db:
+  db:
     container_name: app-test-db
     image: mysql:8
     environment:
-      - MYSQL_ROOT_PASSWORD=root
-      - MYSQL_DATABASE=laravel-app-api
-      - MYSQL_USER=application
-      - MYSQL_PASSWORD=application
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_DATABASE=testDB
+      - MYSQL_USER=user.test
+      - MYSQL_PASSWORD=password
     ports:
       - 3306:3306
     restart: on-failure
