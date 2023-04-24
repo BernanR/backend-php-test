@@ -20,47 +20,41 @@ class ProdutosController extends Controller
         return ProdutosResource::collection($Produtos);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
 
     /**
      * Store a newly created resource in storage.
      */
     public function store(StoreprodutosRequest $request)
     {
-        $Produto = Produtos::created($request->validated());
+        $Produto = Produtos::create($request->validated());
         return ProdutosResource::make($Produto);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Produtos $produto)
+    public function show(Produtos $product)
     {
-        return ProdutosResource::make($produto);
+        return ProdutosResource::make($product);
     }
 
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateprodutosRequest $request, produtos $produtos)
+    public function update(UpdateprodutosRequest $request, Produtos $product)
     {
-        //
+        $product->update($request->validated());
+        return ProdutosResource::make($product);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Produtos $produto)
+    public function destroy(Produtos $product)
     {
         try {
-            $produto->delete();
+            $product->delete();
             return response()->json(['message' => 'Produto excluido com sucesso!'], 200);
 
         } catch (Exception $e) {

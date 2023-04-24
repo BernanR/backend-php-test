@@ -2,6 +2,8 @@
 
 namespace App\Http\Requests;
 
+use App\Helpers\MaskHelper;
+use Illuminate\Validation\Rule;
 use Illuminate\Foundation\Http\FormRequest;
 
 class UpdateprodutosRequest extends FormRequest
@@ -11,7 +13,7 @@ class UpdateprodutosRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -21,8 +23,19 @@ class UpdateprodutosRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
-            //
-        ];
+        $product = $this->route('product');
+        $storeProductsRule = (new StoreprodutosRequest())->rules();
+        $storeProductsRule['codigo'] = Rule::unique('produtos')->ignore($product->id);
+        return $storeProductsRule;
+    }
+
+    public function prepareForValidation()
+    {
+         //REMOVE MASCARA SE HOVER
+        $preco = MaskHelper::removeMoneyMask($this->preco);
+
+        $this->merge([
+            'preco' => trim($preco),
+        ]);
     }
 }

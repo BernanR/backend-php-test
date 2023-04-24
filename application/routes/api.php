@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 Route::prefix('v1')->group(function () {
 
     //produtos api resource
-    Route::apiResource('/produtos', ProdutosController::class)->missing(function () {
+    Route::apiResource('/products', ProdutosController::class)->missing(function () {
         return response()->noContent();
     });
 });

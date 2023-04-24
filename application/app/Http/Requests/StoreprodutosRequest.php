@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Helpers\MaskHelper;
 use Illuminate\Foundation\Http\FormRequest;
 
 class StoreprodutosRequest extends FormRequest
@@ -21,14 +22,13 @@ class StoreprodutosRequest extends FormRequest
      */
     public function rules(): array
     {
-        dd("hi");
         return [
             'nome' => 'required|string|max:50',
-            //'marca' => 'required|string|max:50',
-            // 'descricao' => 'required|string|max:255',
-            // 'preco' => 'required|float',
-            // 'codigo' => 'required|string|max:20|unique(produtos, codigo)',
-            // 'qtd_disponivel' => 'required|integer',
+            'marca' => 'required|string|max:50',
+            'descricao' => 'required|string|max:255',
+            'preco' => 'required|decimal:1,4',
+            'codigo' => 'required|string|max:20|unique:produtos,codigo',
+            'qtd_disponivel' => 'required|integer',
         ];
     }
 
@@ -37,5 +37,15 @@ class StoreprodutosRequest extends FormRequest
         return [
             'qtd_disponivel.required' => "A quantidade disponível é obrigatório."
         ];
+    }
+
+    public function prepareForValidation()
+    {
+        //REMOVE MASCARA SE HOVER
+        $preco = MaskHelper::removeMoneyMask($this->preco);
+
+        $this->merge([
+            'preco' => trim($preco),
+        ]);
     }
 }
