@@ -1,32 +1,21 @@
-version: "3.7"
+version: '3.8'
 
 services:
 
-  app-api:
-    container_name: app-test-api
-    tty: true
-    image: webdevops/php-nginx:8.2
-    environment:
-      - APP_NAME=Laravel Teste
-      - APP_URL=http://localhost
-      - DB_CONNECTION=mysql
-      - DB_HOST=db
-      - DB_PORT=3306
-      - DB_DATABASE=testDB
-      - DB_USERNAME=user.test
-      - DB_PASSWORD=password
-      - WEB_DOCUMENT_ROOT=/var/www/public
-      - APP_ENV=local
-      - APP_DEBUG=true
+  # Web Server Service
+  nginx:
+    image: nginx:alpine
+    container_name: nginx
     ports:
-      - 80:80
-      - 443:443
+      - "8080:80"
     volumes:
       - ./application:/var/www
-    working_dir: /var/www
-    restart: on-failure
+      - ./docker/nginx/conf.d/:/etc/nginx/conf.d/
+    depends_on:
+      - app.dev
+      - db
     networks:
-      - homologacao
+      - setup_network
 
   db:
     container_name: app-test-db
@@ -40,9 +29,25 @@ services:
       - 3306:3306
     restart: on-failure
     networks:
-      - homologacao
+      - setup_network
+
+  # Application Service
+  app.dev:
+    container_name: app-test-api
+    build: 
+      context: ./docker/php
+      dockerfile: Dockerfile
+      args:
+          user: benx
+          uid: 1000
+    volumes:
+      - ./application:/var/www
+    ports:
+      - "9000:9000"
+    working_dir: /var/www
+    networks:
+      - setup_network
 
 networks:
-  homologacao:
-    name: homologacao
+  setup_network:
     driver: bridge

@@ -11,8 +11,8 @@
 
 ## Rodar migrates e seeds
 
-1. ```docker-compose exec app-api php artisan migrate```
-2. ```docker-compose exec app-api php artisan db:seed```
+1. ```docker-compose exec app.dev php artisan migrate```
+2. ```docker-compose exec app.dev php artisan db:seed```
 
 ## Link da Aplicação no postaman
 ```https://www.postman.com/red-star-7529/workspace/brn-0m30-desafio/overview```
