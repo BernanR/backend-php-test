@@ -9,7 +9,7 @@ class Produtos extends Model
 {
     use HasFactory;
 
-    CONST PRODUTOS_POR_PAGE = 20;
+    CONST PRODUCTS_PER_PAGE = 20;
 
     protected $fillable = [
         'nome',

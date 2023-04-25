@@ -2,7 +2,7 @@
 
 namespace App\Helpers;
 
-use Illuminate\Foundation\Http\FormRequest;
+use Exception;
 
 class MaskHelper
 {
@@ -11,6 +11,14 @@ class MaskHelper
      */
     static function removeMoneyMask($price): float
     {
-        return (preg_match('/,/', $price)) ? str_replace(",", ".", str_replace(".", "", $price)) : $price;
+        $price = trim(str_replace(['R$', "$"], "", $price));
+        $price = (preg_match('/,/', $price)) ? str_replace(",", ".", str_replace(".", "", $price)) : $price;
+        $price = (float) $price;
+
+        if (is_float($price)) {
+            return $price;
+        }
+
+        abort(400, "Error: Campo preço é inválido.");
     }
 }
