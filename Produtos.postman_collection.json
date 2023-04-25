@@ -1,0 +1,86 @@
+{
+	"info": {
+		"_postman_id": "e065c459-af7d-4524-90bd-c057073fe0d0",
+		"name": "Produtos",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "8990285",
+		"_collection_link": "https://www.postman.com/red-star-7529/workspace/redeancora-teste-laravel/collection/8990285-e065c459-af7d-4524-90bd-c057073fe0d0?action=share&creator=8990285&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "Listar Produtos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://127.0.0.1:8080/api/v1/products"
+			},
+			"response": []
+		},
+		{
+			"name": "Listar um  Produtos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://127.0.0.1:8080/api/v1/products/14"
+			},
+			"response": []
+		},
+		{
+			"name": "Criar novo produto",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\" : \"Caneca\",\r\n    \"marca\" : \"Microsoft\",\r\n    \"descricao\" : \"Azul com bolinhas brancas\",\r\n    \"qtd_disponivel\" : 20,\r\n    \"preco\" : \"1000000,2233\",\r\n    \"codigo\" : \"PROD-0010895\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://127.0.0.1:8080/api/v1/products"
+			},
+			"response": []
+		},
+		{
+			"name": "Alterar um Produto",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\" : \"Blue Cup\",\r\n    \"marca\" : \"Microsoft\",\r\n    \"descricao\" : \"Azul com bolinhas brancas\",\r\n    \"qtd_disponivel\" : 20,\r\n    \"preco\" : \"1.000.000,20\",\r\n    \"codigo\" : \"PROD-0006670\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://127.0.0.1:8080/api/v1/products/1"
+			},
+			"response": []
+		},
+		{
+			"name": "Excluir produto",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "http://127.0.0.1:8080/api/v1/products/2"
+			},
+			"response": []
+		}
+	]
+}
