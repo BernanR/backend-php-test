@@ -1,7 +1,14 @@
+
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+
+## Sobre
+Esta aplicação é um projeto de teste desenvolvido como parte de uma etapa do processo seletivo da empresa **[RedeAncora](https://www.redeancora.com.br/)**.
+Neste projeto foi utilizado laravel e mysql para desenvolver uma api de produtos. Também foi criado os testes para testar todas as rotas e algumas funcionalidades da aplicação. Para rodar este projeto é necessário ter instalado o **docker**, **docker-compose** e PHP superior a **PHP 8.1.10**.
+
 ## Como instalar e rodar o projeto
 
 1. ```git clone https://github.com/BernanR/backend-php-test.git```
-2. ```cd application```
+2. ```cd backend-php-test/application```
 3. ```composer install```
 3. ```copy .env.example .env```
 4. ```docker-compose build```

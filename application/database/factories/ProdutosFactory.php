@@ -17,7 +17,7 @@ class ProdutosFactory extends Factory
     public function definition(): array
     {
         return [
-            'nome' => fake()->sentence(3),
+            'nome' => fake()->sentence(2),
             'descricao' => fake()->text(),
             'codigo' => 'PROD' . fake()->ean13(),
             'marca' => fake()->words(rand(1, 2), true),
