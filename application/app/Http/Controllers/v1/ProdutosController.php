@@ -16,7 +16,7 @@ class ProdutosController extends Controller
      */
     public function index()
     {
-        $Produtos = Produtos::paginate(Produtos::PRODUTOS_POR_PAGE);
+        $Produtos = Produtos::paginate(Produtos::PRODUCTS_PER_PAGE);
         return ProdutosResource::collection($Produtos);
     }
 
@@ -60,7 +60,7 @@ class ProdutosController extends Controller
         } catch (Exception $e) {
 
             // Handle the exception
-            return response()->json(['error' => $e->getMessage()], 404);
+            return response()->json(['error' => $e->getMessage()], 500);
         }
     }
 }
