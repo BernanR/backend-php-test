@@ -3,7 +3,7 @@
 1. ```git clone https://github.com/BernanR/backend-php-test.git```
 2. ```cd application```
 3. ```composer install```
-3. Copy ```.env.example``` to ```.env```
+3. ```copy .env.example .env```
 4. ```docker-compose build```
 5. ```docker compose up -d```
 6. disponível na url ```127.0.0.1:8080```
