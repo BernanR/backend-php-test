@@ -14,5 +14,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    abort(201, "Products api -v 1.0");
+    echo 'Product api v 1.0 - api/v1/product';
 });
