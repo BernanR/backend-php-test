@@ -20,18 +20,18 @@
 1. ```docker compose exec app.dev php artisan test```
 
 ## O que é testado
-✓ Testa estrutura json no retorno de consulta de produtos
-✓ Testa cadastro de produtos
-✓ Testa se esta repeitando a regra onde o código do produto deve ser único
-✓ Testa o update do produto     
-✓ Testa a exclusão de um produto 
-✓ Testa se o esta removendo mascaras do preço do produto 
-✓ Testa se esta retornando erro preço informado não válido
-✓ Testa retorno correto para exclusão de produtos que não existe
+✓ Testa estrutura json no retorno de consulta de produtos<br />
+✓ Testa cadastro de produtos<br />
+✓ Testa se esta repeitando a regra onde o código do produto deve ser único<br />
+✓ Testa o update do produto<br />
+✓ Testa a exclusão de um produto<br />
+✓ Testa se o esta removendo mascaras do preço do produto<br />
+✓ Testa se esta retornando erro preço informado não válido<br />
+✓ Testa retorno correto para exclusão de produtos que não existe<br />
 
 ## Link da Aplicação no postaman
-Obs: também pode baixar a collection do postman aqui no reposositório.
-```https://www.postman.com/red-star-7529/workspace/redeancora-teste-laravel```
+Obs: Também foi adicionado a collection do postman na raiz do repositório.<br />
+(https://www.postman.com/red-star-7529/workspace/redeancora-teste-laravel)
 
 ## O que foi feito neste projeto.
 
