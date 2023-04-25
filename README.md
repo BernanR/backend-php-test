@@ -29,7 +29,7 @@
 ✓ Testa se esta retornando erro preço informado não válido<br />
 ✓ Testa retorno correto para exclusão de produtos que não existe<br />
 
-## Link da Aplicação no postaman
+## Link da public collection no postman
 Obs: Também foi adicionado a collection do postman na raiz do repositório.<br />
 (https://www.postman.com/red-star-7529/workspace/redeancora-teste-laravel)
 
@@ -37,5 +37,3 @@ Obs: Também foi adicionado a collection do postman na raiz do repositório.<br 
 
  - desenvolvimento das API's nos padrões RESTful.
  - implementação de testes utilizando phpunit
-
-## Link Collection  API's
