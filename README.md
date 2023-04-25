@@ -8,7 +8,7 @@ Neste projeto foi utilizado laravel e mysql para desenvolver uma api de produtos
 ## Como instalar e rodar o projeto
 
 1. ```git clone https://github.com/BernanR/backend-php-test.git```
-2. ```cd application```
+2. ```cd backend-php-test/application```
 3. ```composer install```
 3. ```copy .env.example .env```
 4. ```docker-compose build```
